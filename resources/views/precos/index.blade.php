@@ -169,65 +169,67 @@
 
 
                             </div>
-                            <div class="action-btn">
 
-                                <a href="{{ route('produtos.create') }}" class="btn px-15 btn-primary">
-                                    <i class="las la-plus fs-16"></i>Novo produto</a>
-
-                            </div>
                         </div>
 
 
                         <table id="example" class="display" style="width:100%">
                             <thead>
                             <tr>
-                                <th>Código</th>
-                                <th>Descrição</th>
-                                <th>Custo</th>
+                                <th>Cliente</th>
+                                <th>Produto</th>
+                                <th>Valor do Custo</th>
+                                <th>Valor da venda</th>
                                 <th>Margem</th>
-                                <th>Ações</th>
+                                <th>Situação</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            @foreach($produtos as $row)
+                            @foreach($precos as $row)
                                 <tr>
                                     <td>
-                                        {{$row->codigo}}
+                                        {{$row->cliente_codigo}} - {{$row->cliente_nome}}
                                     </td>
 
                                     <td>
-                                        {{$row->descricao}}
+                                        {{$row->produto_codigo}} - {{$row->produto_descricao}}
                                     </td>
 
 
                                     <td>
-                                       R$  {{number_format((float)$row->custo, 2, '.', '')}}
+                                        R$  {{number_format((float)$row->produto_custo, 2, '.', '')}}
                                     </td>
 
                                     <td>
-                                        {{$row->margem}}%
+                                        R$  {{number_format((float)$row->valor, 2, '.', '')}}
                                     </td>
 
                                     <td>
-                                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-
-                                            <li>
-                                                <a href="{{ route('produtos.view', $row->id) }}" class="view">
-                                                    <i class="uil uil-edit"></i>
-                                                </a>
-                                            </li>
-
-
-                                            <li>
-                                                <a href="{{ route('produtos.ocultar', $row->id) }}" class="remove">
-                                                    <i class="uil uil-trash-alt"></i>
-                                                </a>
-                                            </li>
-
-
-                                        </ul>
+                                        {{$row->produto_margem}}%
                                     </td>
+
+                                    <td>
+
+                                        <?php
+
+                                        $lucro = number_format((float)$row->valor, 2, '.', '') - number_format((float)$row->produto_custo, 2, '.', '');
+                                        $lucro = $lucro * 100;
+                                        $situacao = '';
+
+                                        if($lucro < $row->produto_margem) {
+                                            $situacao = 'ABAIXO DA MARGEM MÍNIMA';
+
+                                            echo "<label style='color: red'>$situacao</label>";
+
+                                        }
+
+
+                                        ?>
+
+
+                                    </td>
+
 
 
                                 </tr>
@@ -321,12 +323,7 @@
                 "url": "https://cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json"
             },
             "responsive": true,
-            columnDefs: [
-                {
-                    targets: [0],
-                    orderData: [0, 1],
-                },
-            ],
+            order: [[1, 'ASC']],
         });
     });
 </script>
