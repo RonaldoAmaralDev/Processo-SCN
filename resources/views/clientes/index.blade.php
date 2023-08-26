@@ -84,7 +84,7 @@
 
                 </ul>
                 <div class="navbar-right__mobileAction d-md-none">
-                    <a href="#" class="btn-author-action"><img class="svg" src="../../public/assets/img/svg/more-vertical.svg" alt="more-vertical"></a>
+                    <a href="#" class="btn-author-action"><img class="svg" src="../public/assets/img/svg/more-vertical.svg" alt="more-vertical"></a>
                 </div>
             </div>
 
@@ -109,17 +109,35 @@
     </a>
     <ul>
     <li class=""><a href="{{ route('clientes.novocliente') }}">Novo cliente</a></li>
-    <li class=""><a href="#">Listagem de clientes</a></li>
+    <li class=""><a href="{{ route('clientes.index') }}">Listagem de clientes</a></li>
     </ul>
 
     <a href="#" class="">
-        <span class="nav-icon uil uil-user"></span>
+        <span class="nav-icon uil uil-list-ui-alt"></span>
         <span class="menu-text">{{ __('Produtos') }}</span>
         <span class="toggle-icon"></span>
     </a>
     <ul>
-        <li class=""><a href="{{ route('clientes.novocliente') }}">Novo produto</a></li>
-        <li class=""><a href="#">Listagem de produtos</a></li>
+        <li class=""><a href="{{ route('produtos.create') }}">Novo produto</a></li>
+        <li class=""><a href="{{ route('produtos.index') }}">Listagem de produtos</a></li>
+    </ul>
+
+    <a href="#" class="">
+        <span class="nav-icon uil uil-money-bill"></span>
+        <span class="menu-text">{{ __('Preços') }}</span>
+        <span class="toggle-icon"></span>
+    </a>
+    <ul>
+        <li class=""><a href="{{ route('precos.index') }}">Listagem preços</a></li>
+    </ul>
+
+    <a href="#" class="">
+        <span class="nav-icon uil uil-list-ol"></span>
+        <span class="menu-text">{{ __('Relatórios') }}</span>
+        <span class="toggle-icon"></span>
+    </a>
+    <ul>
+        <li class=""><a href="{{ route('relatorios.index') }}">Importação CSV</a></li>
     </ul>
 </li>
 

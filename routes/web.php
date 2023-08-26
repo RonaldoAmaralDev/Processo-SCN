@@ -33,6 +33,13 @@ Route::post('/clientes/clienteadd', 'ClientesController@ClienteAdd')->name('clie
 Route::get('/clientes/{id}/viewcliente', 'ClientesController@ViewCliente')->name('clientes.viewcliente');
 Route::get('/clientes/{id}/ocultar', 'ClientesController@OcultarCliente')->name('clientes.ocultar');
 
+Route::get('/produtos/create', 'ClientesController@create')->name('produtos.create');
+Route::post('/produtos/store', 'ClientesController@store')->name('produtos.store');
+Route::get('/produtos/index', 'ClientesController@index')->name('produtos.index');
+
+Route::get('/precos/index', 'ClientesController@index')->name('precos.index');
+
+Route::get('/relatorios/index', 'ClientesController@index')->name('relatorios.index');
 
 
 Route::get('/cadastrousuarios', 'HomeController@index')->name('home');
