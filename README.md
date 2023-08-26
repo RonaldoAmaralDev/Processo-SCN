@@ -18,7 +18,7 @@
 * Se deletar os produtos, remove o preços dele [onDelete ForeignKey]
 * Tabela de LOG para cada ação do usuário
 * Mascáras de valor, CEP e CPF/CNPJ
-
+* Todas alterações e melhorias feitas por commits separados
 
 ## Comandos:
 
