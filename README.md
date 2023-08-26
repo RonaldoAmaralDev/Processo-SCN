@@ -22,13 +22,27 @@
 
 ## Comandos:
 
+<p>
 git clone https://github.com/RonaldoAmaralDev/Processo-SCN.git
+</p>
+<p>
 composer install # or composer update
+</p>
+<p>
 cp .env.example .env
+</p>
+<p>
 php artisan key:generate
+</p>
+<p>
 php artisan migrate
+</p>
+<p>
 php artisan db:seed
+</p>
+<p>
 php artisan serve
+</p>
 
 ## Autenticação/Login:
 
