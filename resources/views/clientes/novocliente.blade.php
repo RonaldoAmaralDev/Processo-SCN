@@ -314,9 +314,8 @@
 
                                                 <div class="button-group d-flex flex-wrap pt-35 mb-35">
                                                 <button type="submit" id="btnsubmit" class="btn btn-primary btn-default btn-squared me-15 text-capitalize">Cadastrar cliente </button>
-                                                <button type="button" id="btnsubmit" class="btn btn-primary btn-default btn-squared me-15 text-capitalize">Limpar
+                                                <button type="button" class="btn btn-primary btn-default btn-squared me-15 text-capitalize">Limpar
                                                 </button>
-
                                                 </div>
 
 

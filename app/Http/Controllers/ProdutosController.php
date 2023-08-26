@@ -48,7 +48,7 @@ class ProdutosController extends Controller
         $carbon= Carbon::now();
 
         //Verifica se já existe um e-mail cadastrado
-        $verifica = ProdutosController::wherecodigo($request->get('novoproduto_codigo'))->count();
+        $verifica = Produtos::whereCodigo($request->get('novoproduto_codigo'))->count();
 
         if($verifica > 0) {
 
@@ -60,7 +60,7 @@ class ProdutosController extends Controller
 
             'descricao' => $request->get('novoproduto_descricao'),
             'codigo' => $request->get('novoproduto_codigo'),
-            'custo' => $request->get('novoproduto_custo'),
+            'custo' => str_replace(',', '.', $request->get('novoproduto_custo')),
             'margem' => $request->get('novoproduto_margem'),
             'created_at' => $carbon
         );
@@ -89,7 +89,7 @@ class ProdutosController extends Controller
 
     }
 
-    public function delete($id) {
+    public function OcultarProduto($id) {
 
         $carbon= Carbon::now();
 

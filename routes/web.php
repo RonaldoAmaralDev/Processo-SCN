@@ -36,6 +36,8 @@ Route::get('/clientes/{id}/ocultar', 'ClientesController@OcultarCliente')->name(
 Route::get('/produtos/create', 'ProdutosController@create')->name('produtos.create');
 Route::post('/produtos/store', 'ProdutosController@store')->name('produtos.store');
 Route::get('/produtos/index', 'ProdutosController@index')->name('produtos.index');
+Route::get('/produtos/{id}/ocultar', 'ProdutosController@OcultarProduto')->name('produtos.ocultar');
+Route::get('/produtos/{id}/view', 'ProdutosController@ViewProduto')->name('produtos.view');
 
 Route::get('/precos/index', 'PrecosController@index')->name('precos.index');
 
