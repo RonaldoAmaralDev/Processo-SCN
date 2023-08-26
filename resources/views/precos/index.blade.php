@@ -180,7 +180,8 @@
                                 <th>Produto</th>
                                 <th>Valor do Custo</th>
                                 <th>Valor da venda</th>
-                                <th>Margem</th>
+                                <th>Margem Mínima (R$ / %)</th>
+                                <th>Margem Obtida (R$ / %)</th>
                                 <th>Situação</th>
                             </tr>
                             </thead>
@@ -193,7 +194,7 @@
                                     </td>
 
                                     <td>
-                                        {{$row->produto_codigo}} - {{$row->produto_descricao}}
+                                        {{$row->produto_descricao}} - {{$row->produto_codigo}}
                                     </td>
 
 
@@ -205,30 +206,38 @@
                                         R$  {{number_format((float)$row->valor, 2, '.', '')}}
                                     </td>
 
-                                    <td>
-                                        {{$row->produto_margem}}%
-                                    </td>
 
-                                    <td>
 
                                         <?php
 
-                                        $lucro = number_format((float)$row->valor, 2, '.', '') - number_format((float)$row->produto_custo, 2, '.', '');
-                                        $lucro = $lucro * 100;
+                                        $lucro_real = number_format((float)$row->valor, 2, '.', '') - number_format((float)$row->produto_custo, 2, '.', '');
+                                        $lucro_porcent = $lucro_real * 100;
                                         $situacao = '';
+                                        $margem_real = ($row->produto_margem * $row->produto_custo) / 100;
+                                        $margem_real =  number_format((float)$margem_real, 2, '.', '');
+                                        $lucro_real =  number_format((float)$lucro_real, 2, '.', '');
 
-                                        if($lucro < $row->produto_margem) {
+
+                                        echo"<td>";
+                                        echo"R$ $margem_real - $row->produto_margem %";
+                                        echo "</td>";
+
+                                        echo "<td>R$ $lucro_real - $lucro_porcent%</td>";
+
+                                        echo "<td>";
+                                        if($lucro_porcent < $row->produto_margem) {
                                             $situacao = 'ABAIXO DA MARGEM MÍNIMA';
 
                                             echo "<label style='color: red'>$situacao</label>";
 
                                         }
+                                        echo "</td>";
 
 
                                         ?>
 
 
-                                    </td>
+
 
 
 
@@ -323,7 +332,6 @@
                 "url": "https://cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json"
             },
             "responsive": true,
-            order: [[1, 'ASC']],
         });
     });
 </script>
