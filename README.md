@@ -48,3 +48,12 @@ php artisan serve
 
 teste@teste.com.br	
 123456
+
+
+![image](https://github.com/RonaldoAmaralDev/Processo-SCN/assets/34324890/ec02b014-0e08-43bd-848b-9f461c2c8397)
+![image](https://github.com/RonaldoAmaralDev/Processo-SCN/assets/34324890/e95aa23c-2611-4e67-b59a-693b05a9b7a3)
+![image](https://github.com/RonaldoAmaralDev/Processo-SCN/assets/34324890/bb4cbe1c-7a55-482c-88c9-f4deefae0b7f)
+![image](https://github.com/RonaldoAmaralDev/Processo-SCN/assets/34324890/e6fb0a8e-da5b-4e68-a3a3-af29b2cd4d44)
+
+
+
