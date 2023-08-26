@@ -20,9 +20,9 @@ class CreateClientesTable extends Migration
             $table->string('endereco_residencial_cep');
             $table->string('endereco_residencial_numero');
             $table->string('endereco_residencial_complemento');
-            $table->string('endereco_comercial_cep');
-            $table->string('endereco_comercial_numero');
-            $table->string('endereco_comercial_complemento');
+            $table->string('endereco_comercial_cep')->nullable();
+            $table->string('endereco_comercial_numero')->nullable();
+            $table->string('endereco_comercial_complemento')->nullable();
             $table->timestamps();
         });
     }

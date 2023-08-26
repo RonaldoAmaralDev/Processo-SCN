@@ -29,7 +29,7 @@ class UserTableSeeder extends Seeder {
 
         User::create(array('name' => 'Admin',
                            'email' => 'teste@teste.com.br',
-                           'password' => '$2a$12$tVO9tU/FhOOngaWHnMNXVOI.eUvAvM5Y2NbYgWiLTMuPdISFzhENK'
+                           'password' => '$2a$12$JNVmjDHfKMMqp0VoPhsUHuOIrnktJ/31PVZoKEecmQvE3Kduotvhm'
                         ));
 
     }

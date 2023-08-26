@@ -14,8 +14,17 @@
 
 Route::get('/', 'ClientesController@index')->name('clientes.index');
 
+//Route::group(['namespace' => 'Auth', 'as' => 'auth'], function(){
+//    // Login Page
+//    Route::get('/login',     'LoginController@showLoginForm')->name('.login');
+//    // Login Post
+//    Route::post('/login',    'LoginController@login')->name('.login');
+//    // Logout
+//    Route::get('/logout',    'LoginController@logout')->name('.logout');
+//});
 
 Auth::routes();
+
 
 Route::get('/clientes', 'ClientesController@index')->name('clientes.index');
 Route::get('/clientes/novocliente', 'ClientesController@NovoCliente')->name('clientes.novocliente');

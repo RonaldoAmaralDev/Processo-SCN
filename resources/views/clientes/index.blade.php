@@ -6,14 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="base-url" content="{{ asset('', Request::secure()) }}">
-    <title>Listagem de clientes | Projeto UPD8</title>
+    <title>Listagem de clientes | Projeto</title>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="icon" href="https://i0.wp.com/esferas.com.br/wp-content/uploads/2021/09/cropped-cropped-cropped-logo-esferas-v3-1.png?fit=32%2C32&#038;ssl=1" sizes="32x32" />
-    <link rel="icon" href="https://i0.wp.com/esferas.com.br/wp-content/uploads/2021/09/cropped-cropped-cropped-logo-esferas-v3-1.png?fit=192%2C192&#038;ssl=1" sizes="192x192" />
+    <link rel="icon" type="image/png" href="https://colorlib.com/etc/lf/Login_v10/images/icons/favicon.ico" />
 
 
-    
-    <script src="https://code.iconify.design/3/3.0.1/iconify.min.js"></script>  
+    <script src="https://code.iconify.design/3/3.0.1/iconify.min.js"></script>
 
 
     <link href="{{ asset('public/assets/css/style.min.css') }}" rel="stylesheet">
@@ -31,8 +29,7 @@
         <nav class="navbar navbar-light">
             <div class="navbar-left">
                 <div class="logo-area">
-                    <a class="navbar-brand" href="#"><img class="dark" src="https://tse3.mm.bing.net/th?id=OIP.TqyhbRUnRTqGt6th9vRiVQAAAA&pid=Api&P=0&h=180" alt="logo"></a>
-                    <a href="#" class="sidebar-toggle"><img class="svg" src="public/assets/img/svg/align-center-alt.svg" alt="img"></a>
+                    <a href="#" class="sidebar-toggle"><img class="svg" src="../public/assets/img/svg/align-center-alt.svg" alt="img"></a>
                 </div>
             </div>
 
@@ -49,18 +46,18 @@
                                     <h2 class="dropdown-wrapper__title">Notificações <span class="badge-circle badge-warning ms-1">0</span>
                                     </h2>
                                     <ul>
-          
+
                                     </ul>
                                     <a href="#" class="dropdown-wrapper__more">Ver todas notificações</a>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    
+
                     <li class="nav-author">
                         <div class="dropdown-custom">
                         <a href="javascript:;" class="nav-item-toggle"><img src="https://demo.dashboardmarket.com/hexadash-html/ltr/img/author-nav.jpg" alt="" class="rounded-circle">
-                                <span class="nav-item__title">{{ Auth::user()->name }}<i class="las la-angle-down nav-item__arrow"></i></span>
+                                <span class="nav-item__title">Teste<i class="las la-angle-down nav-item__arrow"></i></span>
                             </a>
                             <div class="dropdown-parent-wrapper">
                                 <div class="dropdown-wrapper">
@@ -69,8 +66,8 @@
                                             <img src="" alt="" class="rounded-circle">
                                         </div>
                                         <div>
-                                            <h6>{{ Auth::user()->name }}</h6>
-                                            <span class="text-uppercase">{{ Auth::user()->type }}</span>
+                                            <h6>Teste</h6>
+                                            <span class="text-uppercase">Admin</span>
                                         </div>
                                     </div>
                                     <div class="nav-author__options">
@@ -80,14 +77,14 @@
                                         <a href="{{ route('logout') }}" class="nav-author__signout"><i class="uil uil-sign-out-alt"></i> Logout</a>
                                     </div>
                                 </div>
-                    
+
                             </div>
                         </div>
                     </li>
 
                 </ul>
                 <div class="navbar-right__mobileAction d-md-none">
-                    <a href="#" class="btn-author-action"><img class="svg" src="public/assets/img/svg/more-vertical.svg" alt="more-vertical"></a>
+                    <a href="#" class="btn-author-action"><img class="svg" src="../../public/assets/img/svg/more-vertical.svg" alt="more-vertical"></a>
                 </div>
             </div>
 
@@ -114,11 +111,21 @@
     <li class=""><a href="{{ route('clientes.novocliente') }}">Novo cliente</a></li>
     <li class=""><a href="#">Listagem de clientes</a></li>
     </ul>
+
+    <a href="#" class="">
+        <span class="nav-icon uil uil-user"></span>
+        <span class="menu-text">{{ __('Produtos') }}</span>
+        <span class="toggle-icon"></span>
+    </a>
+    <ul>
+        <li class=""><a href="{{ route('clientes.novocliente') }}">Novo produto</a></li>
+        <li class=""><a href="#">Listagem de produtos</a></li>
+    </ul>
 </li>
 
 
 
-                      
+
                     </ul>
                 </div>
             </div>
@@ -152,28 +159,13 @@
 </div>
 </div>
 
-<!--Modal para cadastro Cliente --> 
-
-
-
-
-
-
-<!--Fim Modal Cliente --> 
-
-
-            <!--Datatable --> 
-
 
             <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>Cliente</th>
-                <th>CPF</th>
-                <th>Data Nasc.</th>
-                <th>Estado</th>
-                <th>Cidade</th>
-                <th>Sexo</th>
+                <th>Cliente/Nome Social</th>
+                <th>CPF/CNPJ</th>
+                <th>CEP Residencial</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -186,25 +178,12 @@
                                     </td>
 
                                     <td>
-                                    {{$cliente->cpf}}
+                                    {{$cliente->cpf_cnpj}}
                                     </td>
 
-                                    <td>
-                                    {{date('d/m/Y', strtotime($cliente->dt_nascimento))}}
-
-                                    </td>
 
                                     <td>
-                                    {{$cliente->uf}}
-                                    </td>
-
-                                    <td>
-                                    {{$cliente->endereco}}
-                                    </td>
-
-                                    <td>
-                                    {{$cliente->sexo}}
-
+                                    {{$cliente->endereco_residencial_cep}}
                                     </td>
 
                                     <td>
@@ -216,7 +195,7 @@
                                     </a>
                                     </li>
 
-         
+
                                     <li>
                                     <a href="{{ route('clientes.ocultar', $cliente->id) }}" class="remove">
                                     <i class="uil uil-trash-alt"></i>
@@ -229,23 +208,28 @@
 
 
                                 </tr>
-                                @endforeach           
-         
+                                @endforeach
+
         </tbody>
     </table>
 
 
 
-            <!--Fim Datatable --> 
+            <!--Fim Datatable -->
 
 
 
 
-                
+
             </div>
         </div>
 
-        <footer class="footer-wrapper">
+            </div>
+            </div>
+        </div>
+
+
+                <footer class="footer-wrapper">
             <div class="footer-wrapper__inside">
                 <div class="container-fluid">
                     <div class="row">
@@ -270,8 +254,9 @@
             </div>
         </footer>
 
+
     </main>
-    
+
     <div id="overlayer" class="loader">
         <div class="loader-overlay">
             <div class="dm-spin-dots spin-lg">
@@ -284,7 +269,7 @@
     </div>
 
 
-    
+
     <script src="{{ asset('public/assets/js/plugins.min.js') }}" ></script>
     <script src="{{ asset('public/assets/js/script.min.js') }}" ></script>
     <script src="{{ asset('public/assets/js/jquery-migrate-3.3.2.js') }}" ></script>
@@ -293,12 +278,12 @@
     <script src="{{ asset('public/assets/js/main.js') }}" ></script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>    
-    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>    
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
 
-   
+
 
 
     @include('sweetalert::alert')
@@ -317,14 +302,6 @@
             {
                 targets: [0],
                 orderData: [0, 1],
-            },
-            {
-                targets: [1],
-                orderData: [1, 0],
-            },
-            {
-                targets: [4],
-                orderData: [4, 0],
             },
         ],
     });

@@ -17,9 +17,9 @@
     <link href="public/assets/css/line.css?" rel="stylesheet">
     <link href="public/assets/css/data-tables/dataTables.bootstrap5.min.css" type="text/css">
     <link href="public/assets/css/custom.css?" rel="stylesheet">
-    
-    <script src="https://code.iconify.design/3/3.0.1/iconify.min.js"></script>  
-    
+
+    <script src="https://code.iconify.design/3/3.0.1/iconify.min.js"></script>
+
 </head>
 
 <body class="layout-light">
@@ -46,18 +46,18 @@
                                     <h2 class="dropdown-wrapper__title">Notificações <span class="badge-circle badge-warning ms-1">0</span>
                                     </h2>
                                     <ul>
-          
+
                                     </ul>
                                     <a href="#" class="dropdown-wrapper__more">Ver todas notificações</a>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    
+
                     <li class="nav-author">
                         <div class="dropdown-custom">
                         <a href="javascript:;" class="nav-item-toggle"><img src="https://demo.dashboardmarket.com/hexadash-html/ltr/img/author-nav.jpg" alt="" class="rounded-circle">
-                                <span class="nav-item__title">{{ Auth::user()->name }}<i class="las la-angle-down nav-item__arrow"></i></span>
+                                <span class="nav-item__title">Admin<i class="las la-angle-down nav-item__arrow"></i></span>
                             </a>
                             <div class="dropdown-parent-wrapper">
                                 <div class="dropdown-wrapper">
@@ -66,8 +66,8 @@
                                             <img src="" alt="" class="rounded-circle">
                                         </div>
                                         <div>
-                                            <h6>{{ Auth::user()->name }}</h6>
-                                            <span class="text-uppercase">{{ Auth::user()->type }}</span>
+                                            <h6>Admin</h6>
+                                            <span class="text-uppercase">Admin</span>
                                         </div>
                                     </div>
                                     <div class="nav-author__options">
@@ -77,7 +77,7 @@
                                         <a href="{{ route('logout') }}" class="nav-author__signout"><i class="uil uil-sign-out-alt"></i> Logout</a>
                                     </div>
                                 </div>
-                    
+
                             </div>
                         </div>
                     </li>
@@ -134,7 +134,7 @@
 
 
 
-                      
+
                     </ul>
                 </div>
             </div>
@@ -172,7 +172,7 @@
         </footer>
 
     </main>
-    
+
     <div id="overlayer" class="loader">
         <div class="loader-overlay">
             <div class="dm-spin-dots spin-lg">
@@ -185,7 +185,7 @@
     </div>
 
 
-    
+
     <script src="public/assets/js/plugins.min.js"></script>
     <script src="public/assets/js/script.min.js"></script>
     <script src="public/assets/js/jquery-migrate-3.3.2.js"></script>
@@ -195,7 +195,7 @@
     <script src="public/assets/js/models/mootools-core-1.4.5.js"></script>
     <script src="public/assets/js/main.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     @include('sweetalert::alert')
 

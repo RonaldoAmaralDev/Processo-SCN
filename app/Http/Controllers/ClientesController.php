@@ -17,10 +17,10 @@ class ClientesController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth:web');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth:web');
+//    }
 
     /**
      * Show the application dashboard.
@@ -48,7 +48,7 @@ class ClientesController extends Controller
         $carbon= Carbon::now();
 
         //Verifica se já existe um e-mail cadastrado
-        $verifica = Clientes::wherecpf($request->get('novocliente_codigo'))->count();
+        $verifica = Clientes::wherecpf_cnpj($request->get('novocliente_codigo'))->count();
 
         if($verifica > 0) {
 
@@ -57,30 +57,32 @@ class ClientesController extends Controller
         }
         //Insert na tabela produtos
             $values = array(
-        
+
               'nome' => $request->get('novocliente_nome'),
-              'cpf' => $request->get('novocliente_codigo'),
-              'dt_nascimento' => $request->get('novocliente_dtnascimento'),
-              'sexo' => $request->get('novocliente_sexo'),
-              'endereco' => $request->get('novocliente_endereco'),
-              'cidade' => $request->get('novocliente_cidade'),
-              'uf' => $request->get('novocliente_uf'),
-              'created_at' => $carbon            );
-            DB::table('clientes')->insert($values);  
+              'cpf_cnpj' => $request->get('novocliente_codigo'),
+              'endereco_residencial_cep' => $request->get('novocliente_cep'),
+              'endereco_residencial_numero' => $request->get('novocliente_numero'),
+              'endereco_residencial_complemento' => $request->get('novocliente_complemento'),
+              'endereco_comercial_cep' => $request->get('novocliente_comercial_cep'),
+              'endereco_comercial_numero' => $request->get('novocliente_comercial_numero'),
+              'endereco_comercial_complemento' => $request->get('novocliente_comercial_complemento'),
+              'created_at' => $carbon
+            );
+            DB::table('clientes')->insert($values);
 
         //Insert na tabela log
         $values = array(
-            'user_id' => Auth::user()->id, 
+            'user_id' => 1,
             'descricao' => "Criação de um novo cliente: " . $request->get('novocliente_nome'),
             'created_at' => $carbon);
-            DB::table('log')->insert($values);  
+            DB::table('log')->insert($values);
 
 
         Alert::success('Novo cliente!', 'Cliente cadastrado com sucesso!');
 
         return redirect()->route('clientes.index');
 
-    } 
+    }
 
     public function ViewCliente($id) {
 
@@ -127,14 +129,14 @@ class ClientesController extends Controller
 
     public function update_clientes_api(Request $request, Clientes $transacao)
     {
-        $clientes->update($request->all());
+        $transacao->update($request->all());
 
-        return response()->json($clientes, 200);
+        return response()->json($transacao, 200);
     }
 
     public function delete_clientes_api(Clientes $transacao)
     {
-        $clientes->delete();
+        $transacao->delete();
 
         return response()->json(null, 204);
     }

@@ -26,6 +26,12 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(1)->create();
 
+        DB::table('users')->insert([
+            'name' => 'Admin',
+            'email' => 'teste@teste.com.br',
+            'password' => '$2a$12$JNVmjDHfKMMqp0VoPhsUHuOIrnktJ/31PVZoKEecmQvE3Kduotvhm'
+        ]);
+
         DB::table('clientes')->insert([
             'nome' => 'Empresa 1',
             'cpf_cnpj' => '53.923.866/0001-30',
