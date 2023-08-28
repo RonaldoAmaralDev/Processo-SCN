@@ -49,6 +49,8 @@ php artisan serve
 teste@teste.com.br	
 123456
 
+Postman Documentação API: [https://github.com/RonaldoAmaralDev/Processo-SCN](https://www.postman.com/restless-escape-630196/workspace/projeto-documentaes/collection/7999727-aec6addb-d344-4662-96b3-ed95f4223b96)
+
 
 ![image](https://github.com/RonaldoAmaralDev/Processo-SCN/assets/34324890/ec02b014-0e08-43bd-848b-9f461c2c8397)
 ![image](https://github.com/RonaldoAmaralDev/Processo-SCN/assets/34324890/e95aa23c-2611-4e67-b59a-693b05a9b7a3)
