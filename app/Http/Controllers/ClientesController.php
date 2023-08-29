@@ -107,36 +107,38 @@ class ClientesController extends Controller
 
     //API
 
-    public function clientes_index_api()
+    public function api_listagem()
     {
+        $clientes = Clientes::get();
         return Clientes::all();
 
 
     }
 
-    public function view_clientes_api(Clientes $clientes)
+    public function api_view(int $id)
     {
 
+        $clientes = Clientes::whereId($id)->first();
         return $clientes;
     }
 
-    public function insert_clientes_api(Request $request)
+    public function api_create(Request $request)
     {
         $clientes = Clientes::create($request->all());
 
         return response()->json($clientes, 201);
     }
 
-    public function update_clientes_api(Request $request, Clientes $transacao)
+    public function api_update(Request $request)
     {
-        $transacao->update($request->all());
+        $clientes = Clientes::update($request->all());
 
-        return response()->json($transacao, 200);
+        return response()->json($clientes, 200);
     }
 
-    public function delete_clientes_api(Clientes $transacao)
+    public function api_delete(int $id)
     {
-        $transacao->delete();
+        Cliente::whereId($id)->delete();
 
         return response()->json(null, 204);
     }
